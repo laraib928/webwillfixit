@@ -1,0 +1,94 @@
+.portfolioPage {
+  --gold: #d9b25f;
+  --gold2: #b8893a;
+  padding-top: 60px;
+}
+
+.portfolioPage :global(.t1) {
+  background: radial-gradient(circle at 75% 25%, rgba(201, 160, 82, 0.2), transparent 50%),
+    #111013;
+}
+
+.portfolioPage :global(.t2) {
+  background: radial-gradient(circle at 20% 80%, rgba(184, 137, 58, 0.18), transparent 50%),
+    linear-gradient(150deg, #131215, #0a0a0c);
+}
+
+.portfolioPage :global(.t3) {
+  background: repeating-linear-gradient(135deg, #151417 0 14px, #0d0c0e 14px 28px);
+}
+
+.portfolioPage :global(.t4) {
+  background: radial-gradient(circle at 85% 15%, rgba(201, 160, 82, 0.16), transparent 45%),
+    #0f0e10;
+}
+
+.portfolioPage :global(.t5) {
+  background: linear-gradient(160deg, #18160f, #09090b 60%), #09090b;
+}
+
+.portfolioPage :global(.pa-site),
+.portfolioPage :global(.pa-postly),
+.portfolioPage :global(.pa-web) {
+  border-color: rgba(217, 178, 95, 0.3);
+}
+
+.portfolioPage :global(.pa-bot .u) {
+  background: #2a2418;
+  border: 1px solid rgba(217, 178, 95, 0.35);
+  color: var(--fg);
+}
+
+.portfolioPage :global(.pp-cal i.g),
+.portfolioPage :global(.vz-grid i) {
+  background: #2a2418;
+}
+
+.portfolioPage :global(.pp-cal i.g) {
+  background: rgba(217, 178, 95, 0.55);
+}
+
+.portfolioPage :global(.bb-cats span),
+.portfolioPage :global(.pa-web .bg3 span) {
+  background: #16151a;
+}
+
+.portfolioPage :global(.cn-nodes i) {
+  box-shadow: none;
+}
+
+.portfolioPage :global(.pcard:hover) {
+  border-color: rgba(217, 178, 95, 0.45);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}
+
+.portfolioPage :global(.glowc) {
+  background: radial-gradient(circle, rgba(201, 160, 82, 0.1), transparent 65%);
+}
+
+.cta {
+  border-radius: 30px;
+  padding: clamp(30px, 6vw, 64px);
+  background: radial-gradient(120% 140% at 100% 0, rgba(201, 160, 82, 0.12), transparent 55%),
+    var(--bg2);
+  border: 1px solid rgba(217, 178, 95, 0.25);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.cta h2 {
+  font-size: clamp(28px, 3.6vw, 46px);
+}
+
+.cta p {
+  color: var(--mute);
+}
+
+@media (max-width: 960px) {
+  .cta {
+    grid-template-columns: 1fr;
+  }
+}
+

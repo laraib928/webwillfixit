@@ -1,0 +1,40 @@
+.marquee {
+  border-block: 1px solid var(--line);
+  background: var(--bg2);
+  overflow: hidden;
+  padding-block: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.mtrack {
+  display: flex;
+  width: max-content;
+  font-family: var(--display);
+  font-size: clamp(22px, 3.4vw, 44px);
+  font-weight: 800;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.mtrack span {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  padding-right: 44px;
+}
+
+.mtrack i {
+  width: 12px;
+  height: 12px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.o {
+  -webkit-text-stroke: 1px var(--mute);
+  color: transparent;
+}
+

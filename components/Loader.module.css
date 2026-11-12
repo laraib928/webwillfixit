@@ -1,0 +1,51 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(28px + env(safe-area-inset-top, 0px)) max(24px, env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(24px, env(safe-area-inset-left, 0px));
+  animation: lfail 0s 4s forwards;
+}
+
+@keyframes lfail {
+  to {
+    visibility: hidden;
+  }
+}
+
+.lt {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--mute);
+  text-transform: uppercase;
+}
+
+.ln {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(80px, 18vw, 220px);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  align-self: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+
+.bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--gold), var(--gold2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none !important;
+  }
+}
+

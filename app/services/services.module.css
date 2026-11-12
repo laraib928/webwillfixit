@@ -1,0 +1,313 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.chipbtn {
+  font: 600 14px var(--body);
+  color: var(--fg);
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.chipbtn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.svcWrap {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.svcList {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  min-width: 0;
+}
+
+.svc {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: clamp(24px, 4vw, 46px);
+  scroll-margin-top: 110px;
+  transition: border-color 0.4s;
+}
+
+.svc:hover {
+  border-color: rgba(255, 194, 26, 0.4);
+}
+
+.svc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at 100% 0, rgba(255, 170, 10, 0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.svcNum {
+  position: absolute;
+  right: -6px;
+  top: -30px;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(120px, 16vw, 220px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 194, 26, 0.18);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.svcTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.svcTop small {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+.ic {
+  width: 54px;
+  height: 54px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 194, 26, 0.1);
+  border: 1px solid rgba(255, 194, 26, 0.3);
+}
+
+.ic svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc h2 {
+  position: relative;
+  font-size: clamp(26px, 3.4vw, 42px);
+}
+
+.svcLead {
+  position: relative;
+  font-size: clamp(17px, 1.6vw, 21px);
+  font-weight: 600;
+  margin: 14px 0 8px;
+  max-width: 40ch;
+}
+
+.svcBody {
+  position: relative;
+  color: var(--mute);
+  margin: 0;
+  max-width: 62ch;
+}
+
+.svcGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 34px;
+  margin-top: 30px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+
+.svcGrid > div {
+  min-width: 0;
+}
+
+.svcGrid h4 {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin: 0 0 14px;
+}
+
+.svcSide {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.svcFacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.svcFacts div {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  min-width: 0;
+}
+
+.svcFacts small {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--mute);
+  display: block;
+}
+
+.svcFacts b {
+  display: block;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.packs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.pack {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  transition: transform 0.4s, border-color 0.4s;
+}
+
+.pack:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 194, 26, 0.5);
+}
+
+.pack.hot {
+  border-color: rgba(255, 194, 26, 0.6);
+  background: radial-gradient(120% 80% at 50% 0, rgba(255, 170, 10, 0.2), transparent 60%),
+    var(--bg2);
+}
+
+.pack small {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+}
+
+.pack h3 {
+  font-size: 26px;
+}
+
+.pack p {
+  color: var(--mute);
+  margin: 0;
+}
+
+.badge2 {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  background: linear-gradient(120deg, var(--gold), var(--gold2));
+  color: #140e00;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.cta {
+  border-radius: 30px;
+  padding: clamp(30px, 6vw, 64px);
+  background: radial-gradient(120% 140% at 100% 0, rgba(255, 170, 10, 0.26), transparent 55%),
+    var(--bg2);
+  border: 1px solid rgba(255, 194, 26, 0.3);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.cta h2 {
+  font-size: clamp(28px, 3.6vw, 46px);
+}
+
+.cta p {
+  color: var(--mute);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.split > div {
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  .svcWrap {
+    grid-template-columns: 1fr;
+  }
+  .packs {
+    grid-template-columns: 1fr;
+  }
+  .pack.hot {
+    order: -1;
+  }
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .svcGrid {
+    grid-template-columns: 1fr;
+  }
+  .svc {
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 400px) {
+  .svcFacts {
+    grid-template-columns: 1fr;
+  }
+}
+

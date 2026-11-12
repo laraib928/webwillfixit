@@ -1,0 +1,13 @@
+.prog {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--gold2), var(--gold));
+  z-index: 95;
+  pointer-events: none;
+}
+

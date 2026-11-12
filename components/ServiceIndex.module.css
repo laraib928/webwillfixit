@@ -1,0 +1,70 @@
+.svcIndex {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 16px;
+  border-left: 1px solid var(--line);
+}
+
+.svcIndex button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  color: var(--mute);
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.svcIndex button span {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--dim);
+  transition: color 0.3s;
+}
+
+.svcIndex button:hover,
+.svcIndex button.on {
+  color: var(--fg);
+  transform: translateX(4px);
+}
+
+.svcIndex button.on span {
+  color: var(--gold);
+}
+
+.svcIndex button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.svcIdxBar {
+  position: absolute;
+  left: -1px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+}
+
+.svcIdxBar i {
+  display: block;
+  width: 100%;
+  height: 16.66%;
+  background: var(--gold);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (max-width: 960px) {
+  .svcIndex {
+    display: none;
+    position: static;
+  }
+}

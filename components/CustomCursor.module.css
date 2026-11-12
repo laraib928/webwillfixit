@@ -1,0 +1,27 @@
+.cur {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold);
+  pointer-events: none;
+  z-index: 96;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  transition: width 0.3s, height 0.3s;
+  display: none;
+}
+
+.cur.big {
+  width: 70px;
+  height: 70px;
+}
+
+@media (pointer: fine) {
+  .cur {
+    display: block;
+  }
+}
+
