@@ -1,38 +1,75 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import TeamGrid from '@/components/TeamGrid';
-import Footer from '@/components/Footer';
+import AboutHeroVisual from '@/components/AboutHeroVisual';
 import { founder } from '@/data/team';
 import styles from './about.module.css';
 
 export const metadata: Metadata = {
   title: 'About us · UK-led, Expert-built',
   description:
-    'Webwillfixit is a digital agency being registered in the United Kingdom. Meet our founder and skilled team delivering web, AI and creative solutions.',
+    'Webwillfixit is a UK-registered digital agency combining strategic thinking, creative expertise and skilled technical delivery to build digital solutions that help businesses grow.',
   openGraph: {
     title: 'About us · Webwillfixit',
     description:
-      'Webwillfixit is a digital agency being registered in the United Kingdom. Meet our founder and skilled team delivering web, AI and creative solutions.',
+      'Webwillfixit is a UK-registered digital agency combining strategic thinking, creative expertise and skilled technical delivery to build digital solutions that help businesses grow.',
   },
 };
 
 export default function AboutPage() {
   return (
-    <div style={{ paddingTop: '60px' }}>
-      <header className="ahero">
-        <div className="glowc" />
-        <div className="wrap" style={{ position: 'relative' }}>
-          <span className="eyebrow">About us</span>
-          <h1>
-            <span className="ln"><span>UK-led.</span></span>
-            <span className="ln"><span className="gold">Expert-built.</span></span>
-          </h1>
-          <p>
-            Webwillfixit is a digital agency being registered in the United Kingdom. You get a UK
-            point of contact you can trust and a skilled team of developers, AI engineers,
-            editors and marketers doing the work.
-          </p>
+    <div>
+      {/* Hero */}
+      <header className={styles.heroSection}>
+        <div className={styles.heroGlowLeft} aria-hidden="true" />
+        <div className={styles.heroGlowRight} aria-hidden="true" />
+        <div className={`wrap ${styles.heroGrid}`}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroHeading}>
+              <span className={styles.heroLine}>
+                <span className={styles.whiteWord}>UK-led.</span>
+              </span>
+              <span className={styles.heroLine}>
+                <span className="gold">Expert-built.</span>
+              </span>
+            </h1>
+            <p className={styles.heroDesc}>
+              Webwillfixit is a UK-registered digital agency combining strategic thinking, creative
+              expertise and skilled technical delivery to build digital solutions that help businesses grow.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/contact" className="btn btn-gold hov">
+                Start a project →
+              </Link>
+              <Link href="/portfolio" className="btn btn-ghost hov">
+                Explore our work
+              </Link>
+            </div>
+            <div className={styles.heroTrust}>
+              <div className={styles.trustItem}>
+                <span className={styles.trustNumber}>
+                  30<em>+</em> Yrs
+                </span>
+                <span className={styles.trustLabel}>Leadership Experience</span>
+              </div>
+              <div className={styles.trustItem}>
+                <span className={styles.trustNumber}>
+                  100<em>%</em>
+                </span>
+                <span className={styles.trustLabel}>UK Accountability</span>
+              </div>
+              <div className={styles.trustItem}>
+                <span className={styles.trustNumber}>6</span>
+                <span className={styles.trustLabel}>Core Capabilities</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.heroVisualCol}>
+            <AboutHeroVisual />
+          </div>
         </div>
       </header>
 
@@ -70,30 +107,48 @@ export default function AboutPage() {
           <span className="eyebrow ar">Meet the founder</span>
           <div className={styles.founder}>
             <div className={`${styles.fcard} ar`}>
-              <div className={styles.fimg}>
-                <span className={`gold ${styles.mono}`}>{founder.initials}</span>
-                <small>Professional photo coming soon</small>
+              <div className={styles.fimgWrap}>
+                <Image
+                  src={founder.image}
+                  alt={`${founder.name} - ${founder.role}`}
+                  width={640}
+                  height={540}
+                  priority
+                  className={styles.fimg}
+                />
+                <div className={styles.fimgGlow} aria-hidden="true" />
+                <div className={styles.fbadge}>
+                  <span className={styles.fbadgeDot} />
+                  <span>UK Point of Contact</span>
+                </div>
               </div>
               <div className={styles.fmeta}>
-                <b>{founder.name}</b>
-                <span>{founder.role}</span>
+                <div>
+                  <b className={styles.fname}>{founder.name}</b>
+                  <span className={styles.frole}>{founder.role}</span>
+                </div>
+                <span className={styles.fchip}>🇬🇧 UK-Based</span>
               </div>
             </div>
             <div className={styles.bio}>
-              <h2 className="ar" style={{ marginBottom: '22px' }}>
+              <h2 className="ar" style={{ marginTop: 0, marginBottom: '20px' }}>
                 The person you <span className="gold">deal with.</span>
               </h2>
-              {founder.bio.map((paragraph, i) => (
-                <p key={i} className="ar">
-                  {paragraph}
-                </p>
-              ))}
+              <div className={styles.bioText}>
+                {founder.bio.map((paragraph, i) => (
+                  <p key={i} className={`ar ${i === 0 ? styles.leadPara : styles.bodyPara}`}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
               <div className={styles.creds}>
                 {founder.creds.map((c, i) => (
                   <div key={i} className={`${styles.cred} ar`}>
-                    <small>{c.tag}</small>
-                    <b>{c.title}</b>
-                    <p>{c.desc}</p>
+                    <div className={styles.credTagRow}>
+                      <span className={styles.credTag}>{c.tag}</span>
+                    </div>
+                    <b className={styles.credTitle}>{c.title}</b>
+                    <p className={styles.credDesc}>{c.desc}</p>
                   </div>
                 ))}
               </div>
@@ -205,8 +260,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Footer variant="simple" />
     </div>
   );
 }

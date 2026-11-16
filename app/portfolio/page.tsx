@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PortfolioGrid from '@/components/PortfolioGrid';
-import Footer from '@/components/Footer';
 import styles from './portfolio.module.css';
 
 export const metadata: Metadata = {
@@ -62,8 +61,6 @@ export default function PortfolioPage() {
           </div>
         </div>
       </section>
-
-      <Footer variant="simple" />
     </div>
   );
 }

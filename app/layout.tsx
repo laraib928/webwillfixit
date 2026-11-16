@@ -7,6 +7,7 @@ import CustomCursor from '@/components/CustomCursor';
 import Chatbot from '@/components/Chatbot';
 import Loader from '@/components/Loader';
 import SmoothScroll from '@/components/SmoothScroll';
+import Footer from '@/components/Footer';
 
 const unbounded = Unbounded({
   subsets: ['latin'],
@@ -94,6 +95,7 @@ export default function RootLayout({
           <div className="noise" aria-hidden="true" />
           <Navbar />
           <main>{children}</main>
+          <Footer />
           <Chatbot />
         </SmoothScroll>
       </body>

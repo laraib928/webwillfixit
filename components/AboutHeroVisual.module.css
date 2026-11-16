@@ -1,0 +1,238 @@
+.visualContainer {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvasWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68%;
+  height: 68%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 194, 26, 0.18) 0%, rgba(255, 154, 10, 0.08) 42%, transparent 70%);
+  pointer-events: none;
+  filter: blur(20px);
+}
+
+.outerRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(68deg) rotateZ(25deg);
+  width: 82%;
+  height: 82%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 194, 26, 0.22);
+  pointer-events: none;
+  animation: rotateRing 40s linear infinite;
+}
+
+@keyframes rotateRing {
+  from {
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(360deg);
+  }
+}
+
+/* Floating luxury service capsule pills */
+.globePill {
+  position: absolute;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(10, 10, 16, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 194, 26, 0.25);
+  box-shadow: 
+    0 12px 28px -4px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(255, 194, 26, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s ease,
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+  pointer-events: auto;
+  user-select: none;
+  cursor: default;
+}
+
+.globePill:hover {
+  transform: translateY(-4px) scale(1.04) !important;
+  border-color: rgba(255, 194, 26, 0.6);
+  background: rgba(18, 17, 24, 0.9);
+  box-shadow: 
+    0 16px 36px -6px rgba(0, 0, 0, 0.9),
+    0 0 24px rgba(255, 194, 26, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.pillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.pillIcon svg {
+  width: 15px;
+  height: 15px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 5px rgba(255, 194, 26, 0.45));
+}
+
+.pillText {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 700;
+  color: #f7f3ea;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.pillDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  opacity: 0.85;
+}
+
+/* Pill positions & floating keyframes */
+.pill1 {
+  top: 8%;
+  left: 2%;
+  animation: floatPill1 5s ease-in-out infinite;
+}
+
+.pill2 {
+  top: 12%;
+  right: 2%;
+  animation: floatPill2 5.5s ease-in-out 1s infinite;
+}
+
+.pill3 {
+  bottom: 12%;
+  left: 4%;
+  animation: floatPill3 5.2s ease-in-out 2s infinite;
+}
+
+.pill4 {
+  bottom: 8%;
+  right: 4%;
+  animation: floatPill4 5.8s ease-in-out 1.5s infinite;
+}
+
+@keyframes floatPill1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes floatPill2 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes floatPill3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+
+@keyframes floatPill4 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+@media (max-width: 960px) {
+  .visualContainer {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 700px) {
+  .visualContainer {
+    max-width: 390px;
+  }
+  .globePill {
+    padding: 6px 12px;
+    gap: 7px;
+  }
+  .pillIcon svg {
+    width: 13px;
+    height: 13px;
+  }
+  .pillText {
+    font-size: 11px;
+  }
+  .pill1 {
+    top: 4%;
+    left: -2%;
+  }
+  .pill2 {
+    top: 8%;
+    right: -2%;
+  }
+  .pill3 {
+    bottom: 8%;
+    left: -2%;
+  }
+  .pill4 {
+    bottom: 4%;
+    right: -2%;
+  }
+}
+
+@media (max-width: 480px) {
+  .visualContainer {
+    max-width: 320px;
+  }
+  .globePill {
+    padding: 5px 10px;
+    gap: 6px;
+  }
+  .pillText {
+    font-size: 10px;
+  }
+  .pillDot {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outerRing,
+  .globePill {
+    animation: none !important;
+  }
+}
+

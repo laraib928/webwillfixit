@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import ServicesList from '@/components/ServicesList';
 import Faq from '@/components/Faq';
-import Footer from '@/components/Footer';
 import { packages } from '@/data/packages';
 import styles from './services.module.css';
 
@@ -115,8 +114,6 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-
-      <Footer variant="simple" />
     </div>
   );
 }

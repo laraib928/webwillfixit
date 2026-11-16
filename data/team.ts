@@ -16,6 +16,7 @@ export interface FounderInfo {
   name: string;
   initials: string;
   role: string;
+  image: string;
   heading: string;
   bio: string[];
   creds: FounderCred[];
@@ -24,16 +25,29 @@ export interface FounderInfo {
 export const founder: FounderInfo = {
   name: 'Waqar Ahmed Abbasi',
   initials: 'WA',
-  role: 'FOUNDER & DIRECTOR · UK',
+  role: 'Founder & Director · UK',
+  image: '/team/waqar.jpg',
   heading: 'The person you deal with.',
   bio: [
-    'Waqar leads client relationships and strategy for Webwillfixit in the UK. He spent more than 30 years in British broadcasting with the BBC and on charity boards, so he knows how to tell a story, run a project responsibly and look after a client.',
-    'He makes sure every project is clear, fairly priced and delivered on time, while our technical team does the building.',
+    'Waqar Ahmed Abbasi brings over 30 years of experience across broadcasting, media, social sectors, and national and international charities. Throughout his career, he has developed extensive experience in communication, leadership, community engagement, and building meaningful relationships.',
+    'He leads client relationships and strategic direction at Webwillfixit, ensuring every project is approached with clarity, transparency, fair pricing, and a strong commitment to delivering quality results.',
   ],
   creds: [
-    { tag: 'MEDIA', title: 'Former BBC broadcaster', desc: 'Radio and content background' },
-    { tag: 'BUSINESS', title: 'MBA', desc: 'University of East London' },
-    { tag: 'GOVERNANCE', title: 'Charity board member', desc: 'Friends of the Earth, BBC Children in Need' },
+    {
+      tag: 'MEDIA',
+      title: 'Former BBC Broadcaster',
+      desc: 'Extensive broadcasting and media experience.',
+    },
+    {
+      tag: 'BUSINESS',
+      title: 'MBA',
+      desc: 'University of East London.',
+    },
+    {
+      tag: 'GOVERNANCE',
+      title: 'Charity Board Member',
+      desc: 'Experience with Friends of the Earth and BBC Children in Need.',
+    },
   ],
 };
 

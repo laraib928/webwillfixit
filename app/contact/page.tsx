@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
 import ContactAside from '@/components/ContactAside';
 import LondonTimeStatus from '@/components/LondonTimeStatus';
-import Footer from '@/components/Footer';
 import styles from './contact.module.css';
 
 export const metadata: Metadata = {
@@ -71,8 +70,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <Footer variant="simple" />
     </div>
   );
 }
