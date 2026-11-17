@@ -2,7 +2,8 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import TeamGrid from '@/components/TeamGrid';
+import TeamStorytelling from '@/components/TeamStorytelling';
+import FounderTimeline from '@/components/FounderTimeline';
 import AboutHeroVisual from '@/components/AboutHeroVisual';
 import { founder } from '@/data/team';
 import styles from './about.module.css';
@@ -152,6 +153,7 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+              <FounderTimeline items={founder.timeline} />
             </div>
           </div>
         </div>
@@ -167,8 +169,8 @@ export default function AboutPage() {
           <p className="ar" style={{ color: 'var(--mute)', maxWidth: '56ch' }}>
             The engineers, marketers and designers who do the hands-on work behind every project.
           </p>
-          <TeamGrid />
         </div>
+        <TeamStorytelling />
       </section>
 
       {/* Values */}

@@ -1,5 +1,32 @@
 .contactPage {
-  padding-top: 60px;
+  padding-top: 0;
+  overflow-x: clip;
+}
+
+.contactHero {
+  overflow-x: clip;
+  position: relative;
+}
+
+.heroTitle {
+  font-size: clamp(2.25rem, 5.5vw, 4.8rem) !important;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  max-width: 16ch;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.heroTitle .ln {
+  display: block;
+  overflow: hidden;
+}
+
+.heroSub {
+  max-width: 54ch;
+  line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 .cstatus {
@@ -7,13 +34,15 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: 24px;
   padding: 10px 16px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--bg2);
   font-size: 14px;
   color: var(--mute);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .cstatus i {
@@ -21,6 +50,7 @@
   height: 9px;
   border-radius: 50%;
   background: var(--mute);
+  flex: none;
 }
 
 .cstatus.open i {
@@ -63,6 +93,7 @@
   gap: 14px;
   position: sticky;
   top: 100px;
+  width: 100%;
 }
 
 .ccard {
@@ -78,6 +109,8 @@
   font: inherit;
   color: inherit;
   width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .ccard:hover {
@@ -108,6 +141,9 @@
 
 .ccard > div {
   min-width: 0;
+  flex: 1;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .ccard small {
@@ -118,10 +154,13 @@
   display: block;
 }
 
-.ccard b {
+.ccard b,
+.ccard a {
   display: block;
   font-size: 16px;
   margin: 4px 0 2px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .ph {
@@ -132,6 +171,7 @@
   font-style: normal;
   font-size: 13px;
   color: var(--gold);
+  display: block;
 }
 
 .cchat {
@@ -145,6 +185,11 @@
   margin-left: auto;
   color: var(--gold);
   font-size: 20px;
+  flex: none;
+}
+
+.stepsHeading {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
 }
 
 .nsteps {
@@ -160,6 +205,7 @@
   border-radius: 24px;
   padding: 28px;
   min-width: 0;
+  box-sizing: border-box;
 }
 
 .nstep span {
@@ -173,6 +219,7 @@
   font-family: var(--display);
   font-weight: 800;
   margin-bottom: 18px;
+  flex: none;
 }
 
 .nstep h3 {
@@ -184,26 +231,56 @@
   color: var(--mute);
   margin: 0;
   font-size: 15px;
+  line-height: 1.5;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1023px) {
   .cgrid {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
   .cside {
     position: static;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    margin-top: 8px;
   }
-  .cchat {
-    grid-column: 1 / -1;
+}
+
+@media (max-width: 768px) {
+  .nsteps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .nstep {
+    padding: 22px 18px;
+    border-radius: 20px;
   }
 }
 
 @media (max-width: 640px) {
-  .nsteps,
-  .cside {
-    grid-template-columns: 1fr;
+  .ccard {
+    padding: 16px 14px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+  .cic {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .cic svg {
+    width: 20px;
+    height: 20px;
+  }
+  .ccard b,
+  .ccard a {
+    font-size: 15px;
+  }
+  .cstatus {
+    border-radius: 14px;
+    padding: 8px 12px;
+    font-size: 13px;
+    gap: 8px;
   }
 }
-

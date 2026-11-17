@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Unbounded, Manrope, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
+import Header from '@/components/Header';
 import ScrollProgress from '@/components/ScrollProgress';
 import CustomCursor from '@/components/CustomCursor';
 import Chatbot from '@/components/Chatbot';
@@ -93,7 +93,7 @@ export default function RootLayout({
           <ScrollProgress />
           <CustomCursor />
           <div className="noise" aria-hidden="true" />
-          <Navbar />
+          <Header />
           <main>{children}</main>
           <Footer />
           <Chatbot />

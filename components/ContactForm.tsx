@@ -35,6 +35,7 @@ export default function ContactForm() {
   const [timeline, setTimeline] = useState('As soon as possible');
   const [msg, setMsg] = useState('');
   const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
 
   const [fieldErrors, setFieldErrors] = useState<{ name?: boolean; email?: boolean }>({});
   const [generalError, setGeneralError] = useState('');
@@ -92,7 +93,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/lead', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -105,7 +106,7 @@ export default function ContactForm() {
           budget,
           timeline,
           message: msg.trim() || undefined,
-          source: 'contact-page',
+          honeypot: honeypot.trim() || undefined,
         }),
       });
 
@@ -117,7 +118,7 @@ export default function ContactForm() {
         setGeneralError(data.error || 'Failed to submit enquiry. Please try again.');
       }
     } catch (err) {
-      console.error(err);
+      console.error('Contact form submission error:', err);
       setGeneralError('Network error. Please try again or reach out directly.');
     } finally {
       setIsSubmitting(false);
@@ -134,6 +135,7 @@ export default function ContactForm() {
     setTimeline('As soon as possible');
     setMsg('');
     setConsent(false);
+    setHoneypot('');
     setFieldErrors({});
     setGeneralError('');
     setIsDone(false);
@@ -143,6 +145,18 @@ export default function ContactForm() {
     <div className={`${styles.cformwrap} ar`}>
       {!isDone ? (
         <form className={styles.cform} id="cform" noValidate onSubmit={handleSubmit}>
+          {/* Honeypot anti-spam field */}
+          <div style={{ display: 'none' }} aria-hidden="true">
+            <input
+              type="text"
+              name="honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
+
           <div className={styles.cstep}>
             <span>01</span>
             <h3>About you</h3>
@@ -299,6 +313,10 @@ export default function ContactForm() {
             className={`btn btn-gold hov ${styles.csend}`}
             type="submit"
             disabled={isSubmitting}
+            style={{
+              opacity: isSubmitting ? 0.7 : 1,
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+            }}
           >
             <span>{isSubmitting ? 'Sending enquiry…' : 'Send enquiry'}</span> →
           </button>
@@ -311,10 +329,9 @@ export default function ContactForm() {
               <path d="M15 27l7 7 15-15" />
             </svg>
           </div>
-          <h3>Thanks, {name.split(' ')[0]}!</h3>
+          <h3>Thanks, we&apos;ll reply within one working day!</h3>
           <p>
-            We&apos;ve got your enquiry about <b>{selectedServices.join(', ')}</b>. Our team
-            replies within one working day to <b>{email}</b>.
+            We&apos;ve received your enquiry{selectedServices.length > 0 ? ` about ${selectedServices.join(', ')}` : ''}. Our team will review your details and respond to <b>{email}</b> within one working day.
           </p>
           <button
             type="button"
@@ -329,4 +346,3 @@ export default function ContactForm() {
     </div>
   );
 }
-

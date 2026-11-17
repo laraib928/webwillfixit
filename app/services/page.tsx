@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div style={{ paddingTop: '60px' }}>
+    <div>
       <header className="ahero">
         <div className="glowc" />
         <div className="wrap" style={{ position: 'relative' }}>

@@ -294,6 +294,18 @@
   }
 }
 
+@media (max-width: 640px) {
+  .tip {
+    display: none;
+  }
+  .launch {
+    width: 52px;
+    height: 52px;
+    right: calc(14px + env(safe-area-inset-right, 0px));
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (max-width: 520px) {
   .panel {
     right: 0;
@@ -304,13 +316,6 @@
     height: min(86dvh, 640px);
     border-radius: 24px 24px 0 0;
     padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
-  .launch {
-    width: 56px;
-    height: 56px;
-  }
-  .tip {
-    display: none;
   }
 }
 

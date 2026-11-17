@@ -50,8 +50,13 @@
   color: var(--gold);
 }
 
-.links a:hover span {
+.links a:hover span,
+.links a.active span {
   transform: translateY(-100%);
+}
+
+.links a.active span:last-child {
+  color: var(--gold);
 }
 
 .burger {
@@ -103,6 +108,11 @@
   font-size: 22px;
   padding: 10px 0;
   border-bottom: 1px solid var(--line);
+  color: var(--fg);
+}
+
+.mmenu a.mactive {
+  color: var(--gold) !important;
 }
 
 @keyframes fade {

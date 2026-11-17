@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 interface LogoProps {
   showText?: boolean;
@@ -7,77 +8,93 @@ interface LogoProps {
   height?: number;
   textClassName?: string;
   link?: boolean;
+  variant?: 'horizontal' | 'stacked' | 'mark';
 }
 
-export function LogoMark({ className = '' }: { className?: string }) {
+export function LogoMark({
+  className = '',
+  width = 56,
+  height = 30,
+}: {
+  className?: string;
+  width?: number;
+  height?: number;
+}) {
   return (
-    <svg viewBox="0 0 48 36" aria-hidden="true" className={className}>
-      <path
-        d="M2 4h8l7 20 4-11"
-        fill="none"
-        stroke="#f6f2e8"
-        strokeWidth="5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M19 13l5-9 9 26 11-26"
-        fill="none"
-        stroke="#ffc21a"
-        strokeWidth="5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M6 30c12 2 26-4 38-22"
-        fill="none"
-        stroke="#ff9a0a"
-        strokeWidth="2"
-      />
-    </svg>
+    <Image
+      src="/logo-mark.png"
+      alt="Webwillfixit Logo Mark"
+      width={width}
+      height={height}
+      className={`logo-mark-img ${className}`.trim()}
+      priority
+      style={{
+        width: `${width}px`,
+        height: 'auto',
+        maxWidth: '100%',
+        objectFit: 'contain',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+      }}
+    />
   );
 }
 
 export default function Logo({
   showText = true,
   className = '',
-  width = 38,
-  height = 30,
-  textClassName = '',
+  width,
+  height,
+  variant = 'horizontal',
 }: LogoProps) {
-  return (
-    <div className={`logo ${className}`.trim()} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
-      <svg
-        viewBox="0 0 48 36"
-        width={width}
-        height={height}
-        aria-hidden="true"
-        style={{ flexShrink: 0 }}
+  if (!showText || variant === 'mark') {
+    return <LogoMark className={className} width={width || 56} height={height || 30} />;
+  }
+
+  if (variant === 'stacked') {
+    return (
+      <div
+        className={`logo ${className}`.trim()}
+        style={{ display: 'inline-flex', alignItems: 'center' }}
       >
-        <path
-          d="M2 4h8l7 20 4-11"
-          fill="none"
-          stroke="#f6f2e8"
-          strokeWidth="5"
-          strokeLinejoin="round"
+        <Image
+          src="/logo.png"
+          alt="Webwillfixit · Complete Digital Solutions"
+          width={width || 180}
+          height={height || 102}
+          priority
+          style={{
+            width: width ? `${width}px` : 'clamp(140px, 32vw, 180px)',
+            height: 'auto',
+            maxWidth: '100%',
+            objectFit: 'contain',
+            display: 'block',
+          }}
         />
-        <path
-          d="M19 13l5-9 9 26 11-26"
-          fill="none"
-          stroke="#ffc21a"
-          strokeWidth="5"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M6 30c12 2 26-4 38-22"
-          fill="none"
-          stroke="#ff9a0a"
-          strokeWidth="2"
-        />
-      </svg>
-      {showText && (
-        <span className={textClassName}>
-          Web<span className="gold">will</span>fixit
-        </span>
-      )}
+      </div>
+    );
+  }
+
+  // Default: modern horizontal layout (Mark + Webwillfixit + Complete Digital Solutions)
+  return (
+    <div
+      className={`logo ${className}`.trim()}
+      style={{ display: 'inline-flex', alignItems: 'center' }}
+    >
+      <Image
+        src="/logo-horizontal.png"
+        alt="Webwillfixit · Complete Digital Solutions"
+        width={width || 205}
+        height={height || 44}
+        priority
+        style={{
+          width: width ? `${width}px` : 'clamp(145px, 38vw, 205px)',
+          height: 'auto',
+          maxWidth: '100%',
+          objectFit: 'contain',
+          display: 'block',
+        }}
+      />
     </div>
   );
 }

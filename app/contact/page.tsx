@@ -19,15 +19,15 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className={styles.contactPage}>
-      <header className="ahero">
+      <header className={`ahero ${styles.contactHero}`}>
         <div className="glowc" />
         <div className="wrap" style={{ position: 'relative' }}>
           <span className="eyebrow">Contact us</span>
-          <h1>
+          <h1 className={styles.heroTitle}>
             <span className="ln"><span>Let&apos;s talk about</span></span>
             <span className="ln"><span className="gold">your project.</span></span>
           </h1>
-          <p>
+          <p className={styles.heroSub}>
             Tell us what you need and we&apos;ll reply within one working day with a clear plan and a
             fixed quote. No pressure, no jargon.
           </p>
@@ -48,7 +48,7 @@ export default function ContactPage() {
       <section className="asec" style={{ paddingTop: 0 }}>
         <div className="wrap">
           <span className="eyebrow ar">What happens next</span>
-          <h2 className="ar" style={{ marginTop: '14px' }}>
+          <h2 className={`ar ${styles.stepsHeading}`} style={{ marginTop: '14px' }}>
             Three simple <span className="gold">steps.</span>
           </h2>
           <div className={styles.nsteps}>

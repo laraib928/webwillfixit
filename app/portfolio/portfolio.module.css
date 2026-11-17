@@ -1,7 +1,7 @@
 .portfolioPage {
   --gold: #d9b25f;
   --gold2: #b8893a;
-  padding-top: 60px;
+  padding-top: 0;
 }
 
 .portfolioPage :global(.t1) {
